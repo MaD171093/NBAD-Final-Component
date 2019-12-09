@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+
+  <body >
+
+    <% include partials/header.ejs {user:user} %>
+
+    <div class="container">
+      <div class="content">
+          <h4>Welcome to Architecture Society!</h4>
+          <p>Please enter your username and password</p>
+          <p><em id='error'><%=msg%></em></p>
+          <form class="coid='error't-form" action="/savedConnections" method="post">
+            <div class="row align-center">
+              <div class="three columns">
+                <label class="align-right" for="username">Username</label>
+              </div>
+              <div class="seven columns">
+                <input class="u-full-width" type="text" placeholder="xyz@abc.com.." id="username" name="username">
+              </div>
+              <div class="two columns"></div>
+            </div>
+
+            <div class="row align-center">
+              <div class="three columns">
+                <label class="align-right" for="password">Password</label>
+              </div>
+              <div class="seven columns">
+                <input class="u-full-width" type="password" id="password" name="password">
+              </div>
+              <div class="two columns"></div>
+            </div>
+
+            <div class="row align-center">
+              <div class="six columns pull-right">
+                <input class="button-primary" type="submit" value="Login">
+              </div>
+              <div class="six columns"> </div>
+            </div>
+          </form>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+
+  <body >
+
+    <% include partials/header.ejs {user:user} %>
+
+    <div class="container">
+      <div class="row content-connection">
+        <h5><%=details.connectionName; %></h5>
+        <div class="four columns">
+          <img id="profile" src="/images/profile.JPG" alt="Profile picture">
+          <p>Hosted by <%=host%>%>
+            <br>
+            <%=details.dateTime[0]; %>
+            <br>
+            <%=details.dateTime[1]; %>
+            <br>
+            <%=details.location; %>
+          </p>
+        </div>
+        <div class="four columns">
+          <p>Are you going? 10 people are going.... </p>
+          <form  class="button-line" action="savedConnections" method="get">
+            <input type="hidden" id="connectionID" name="connectionID" value="<%= reqID%>">
+            <input class="button-primary" id="green" type="submit" name="rsvp" value="Yes">
+            <input class="button-primary" id="red" type="submit" name="rsvp" value="No">
+            <input class="button-primary" id="blue" type="submit" name="rsvp" value="Maybe">
+          </form>
+        </div>
+      </div>
+      <div class="row content-connection">
+        <h5>Detail</h5>
+        <div class="three columns">
+          <p><%=details.details; %></p>
+        </div>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html>

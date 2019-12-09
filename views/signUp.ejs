@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+
+  <body>
+    <%# userID:"u2",
+    firstName: "MaD",
+    lastName: "TechIntegrator",
+    emailAddress:"MaD@uncc.edu",
+    address1Field:"9875 UTD",
+    address2Field:"Apt-C",
+    city:"Charlotte",
+    state:"North Carolina",
+    zipCode:"28262",
+    country:"United States",
+    username:"mad@uncc.edu",
+    password:"12Mad34mad!" %>
+
+    <% include partials/header.ejs {user:user} %>
+    <div class="user-form-container">
+      <div class="user-form-content">
+        <form class="user-form" action="/signup" method="post">
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="firstName">First Name</label>
+            </div>
+            <div class="five columns">
+              <input class="u-full-width" type="text" placeholder="firstName" id="firstName" name="firstName">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.firstName){%>
+                <em id='error'>*<%=err.firstName.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="lastName">Last Name</label>
+            </div>
+            <div class="five columns">
+              <input class="u-full-width" type="text" placeholder="lastName" id="lastName" name="lastName">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.lastName){%>
+                <em id='error'>*<%=err.lastName.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="address1Field">Address-1</label>
+            </div>
+            <div class="five columns">
+              <input class="u-full-width" type="text" placeholder="Street address" id="address1Field" name="address1Field">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.address1Field){%>
+                <em id='error'>*<%=err.address1Field.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="address2Field">Address-2</label>
+            </div>
+            <div class="five columns">
+              <input class="u-full-width" type="text" placeholder="House/Apartment no." id="address2Field" name="address2Field">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.address2Field){%>
+                <em id='error'>*<%=err.address2Field.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="city">City</label>
+            </div>
+            <div class="two columns">
+              <input class="u-full-width" type="text" placeholder="city" id="city" name="city">
+            </div>
+            <div class="one columns">
+              <label class="align-right" for="state">State</label>
+            </div>
+            <div class="two columns">
+              <input class="u-full-width" type="text" placeholder="state" id="state" name="state">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.city){%>
+                <em id='error'>*<%=err.city.msg%></em>
+              <%}}%>
+              <%if(err !== ""){if(err.state){%>
+                <em id='error'>*<%=err.state.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="zipCode">Zip Code</label>
+            </div>
+            <div class="two columns">
+              <input class="u-full-width" type="text" placeholder="28262" id="zipCode" name="zipCode">
+            </div>
+            <div class="one columns">
+              <label class="align-right" for="country">Country</label>
+            </div>
+            <div class="two columns">
+              <input class="u-full-width" type="text" placeholder="country" id="country" name="country">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.zipCode){%>
+                <em id='error'>*<%=err.zipCode.msg%></em>
+              <%}}%>
+              <%if(err !== ""){if(err.country){%>
+                <em id='error'>*<%=err.country.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="email">Email</label>
+            </div>
+            <div class="five columns">
+              <input class="u-full-width" type="text" placeholder="email" id="email" name="email">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.email){%>
+                <em id='error'>*<%=err.email.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="three columns">
+              <label class="align-right" for="password">Set Password</label>
+            </div>
+            <div class="five columns">
+              <input class="u-full-width" type="password" id="password" name="password">
+            </div>
+            <div class="four columns">
+              <%if(err !== ""){if(err.password){%>
+                <em id='error'>*<%=err.password.msg%></em>
+              <%}}%>
+            </div>
+          </div>
+
+          <div class="row align-center">
+            <div class="six columns pull-right">
+              <input class="button-primary" type="submit" value="register">
+            </div>
+            <div class="six columns"> </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html>

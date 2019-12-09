@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+
+  <body>
+
+    <% include partials/header.ejs {user:user} %>
+
+    <form class="content-form" action="/newConnection" method="post">
+      <div class="row align-center">
+        <div class="three columns">
+          <label class="align-right" for="topic">Club Name</label>
+        </div>
+        <%if(detail){%>
+          <div class="five columns">
+            <input class="u-full-width" type="text" placeholder="topic" id="topic" name="topic" value="<%=detail.connectionTopic.slice(0,-5)%>">
+          </div>
+        <%}else{%>
+          <div class="five columns">
+            <input class="u-full-width" type="text" placeholder="topic" id="topic" name="topic">
+          </div>
+        <%}%>
+        <div class="four columns">
+          <%if(err !== ""){if(err.topic){%>
+            <em id='error'>*<%=err.topic.msg%></em>
+          <%}}%>
+      </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="three columns">
+          <label class="align-right" for="name">Event Name</label>
+        </div>
+        <%if(detail){%>
+          <div class="five columns">
+            <input class="u-full-width" type="text" placeholder="name" id="name" name="name" value="<%=detail.connectionName%>">
+          </div>
+        <%}else{%>
+          <div class="five columns">
+            <input class="u-full-width" type="text" placeholder="name" id="name" name="name">
+          </div>
+        <%}%>
+        <div class="four columns">
+          <%if(err !== ""){if(err.name){%>
+            <em id='error'>*<%=err.name.msg%></em>
+          <%}}%>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="three columns">
+          <label class="align-right" for="details">Details</label>
+        </div>
+        <%if(detail){%>
+          <div class="five columns">
+            <textarea class="u-full-width" placeholder="description …" id="details" name="details"><%=detail.details%></textarea>
+          </div>
+        <%}else{%>
+          <div class="five columns">
+            <textarea class="u-full-width" placeholder="description …" id="details" name="details"></textarea>
+          </div>
+        <%}%>
+        <div class="four columns">
+          <%if(err !== ""){if(err.details){%>
+            <em id='error'>*<%=err.details.msg%></em>
+          <%}}%>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="three columns">
+          <label class="align-right" for="location">Where</label>
+        </div>
+        <%if(detail){%>
+          <div class="five columns">
+            <input class="u-full-width" type="text" placeholder="location" id="location" name="location" value="<%=detail.location%>">
+          </div>
+        <%}else{%>
+          <div class="five columns">
+            <input class="u-full-width" type="text" placeholder="location" id="location" name="location">
+          </div>
+        <%}%>
+        <div class="four columns">
+          <%if(err !== ""){if(err.location){%>
+            <em id='error'>*<%=err.location.msg%></em>
+          <%}}%>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="three columns">
+          <label class="align-right" for="date">Date</label>
+        </div>
+        <div class="five columns">
+          <input class="u-full-width" type="date" id="date" name="date">
+        </div>
+        <div class="four columns">
+          <%if(err !== ""){if(err.date){%>
+            <em id='error'>*<%=err.date.msg%></em>
+          <%}}%>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="three columns">
+          <label class="align-right" for="time">Start Time</label>
+        </div>
+        <div class="two columns">
+          <input class="u-full-width" type="time" id="time" name="time" step="900">
+        </div>
+        <div class="one  column">
+          <label class="align-right" for="time">Duration</label>
+        </div>
+        <div class="two  columns">
+          <select class="u-full-width" id="duration" name="duration">
+            <option value="1">1 hr</option>
+            <option value="2">2 hr</option>
+            <option value="3">3 hr</option>
+            <option value="4">4 hr</option>
+            <option value="5">5 hr</option>
+            <option value="6">6 hr</option>
+          </select>
+        </div>
+        <div class="four columns">
+          <%if(err !== ""){if(err.time){%>
+            <em id='error'>*<%=err.time.msg%></em>
+          <%}}%>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="six columns pull-right">
+          <input class="button-primary" type="submit" value="create connection">
+        </div>
+        <div class="six columns"> </div>
+      </div>
+
+    </form>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html>

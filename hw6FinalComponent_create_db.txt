@@ -1,0 +1,122 @@
+//Password for precoded users = 'qwerty1234'
+//Create Or Switch Database
+use ArchitectureSociety
+
+
+//To drop any existing collection
+db.connections.drop()
+db.users.drop()
+db.userConnections.drop()
+
+
+//To create new collections
+db.createCollection('connections')
+db.createCollection('users')
+db.createCollection('userConnections')
+
+
+//To insert data in 'connections' collection
+db.connections.insertMany([{
+  connectionID: '01_flw_club',
+  connectionName: 'Organic Architecture Model Shop',
+  connectionTopic: 'FRANK LLOYD WRIGHT CLUB',
+  details: 'Worshop for using lasercutter and 3D printer for creating 1:100 scaled models of selected modernist projects.',
+  dateTime: ['Friday, October 20, 2019','10:00 - 14:00'],
+  location: 'Fabrication lab',
+  userID:"u2"
+},{
+  connectionID: '01_am_club',
+  connectionName: 'Integrative Technology Lab',
+  connectionTopic: 'ACHIM MENGES CLUB',
+  details: 'Worshop for troubleshooting kuka robot. And generating kuka code followed by building a basic brick wall.',
+  dateTime: ['Friday, October 20, 2019','10:00 - 14:00'],
+  location: 'Robot Fabrication lab',
+  userID:"u2"
+},{
+  connectionID: '02_flw_club',
+  connectionName: 'Ludwig Van Beethoven Music Band',
+  connectionTopic: 'FRANK LLOYD WRIGHT CLUB',
+  details: 'Music band rehearsal followed by a 30 min performance, collection of songs from Ludwig Van playlist of Beethoven.',
+  dateTime: ['Friday, October 20, 2019','15:00 - 17:00'],
+  location: 'Storrs Amphitheater',
+  userID:"u2"
+},{
+  connectionID: '02_am_club',
+  connectionName: 'Biomemictics in Architecture',
+  connectionTopic: 'ACHIM MENGES CLUB',
+  details: 'Seminar and litrature review on application of biomemictics in architecture. Followed by fabrication session.',
+  dateTime: ['Friday, October 20, 2019','15:00 - 17:00'],
+  location: 'Student Union, Lounge',
+  userID:"u2"
+},{
+  connectionID: '03_am_club',
+  connectionName: 'Material logic Debates',
+  connectionTopic: 'ACHIM MENGES CLUB',
+  details: 'Extempore debates on various art and architecture material logic topic followed by lunch and discussion.',
+  dateTime: ['Thursday, October 19, 2019','10:00 - 12:00'],
+  location: 'Student Union, Auditorium',
+  userID:"u1"
+},{
+  connectionID: '03_flw_club',
+  connectionName: 'Modernism Debates',
+  connectionTopic: 'FRANK LLOYD WRIGHT CLUB',
+  details: 'Extempore debates on various art and architecture modernism topic followed by lunch and discussion.',
+  dateTime: ['Thursday, October 19, 2019','10:00 - 12:00'],
+  location: 'Student Union, Lounge',
+  userID:"u1"
+}])
+
+
+
+//To insert data in 'users' collection
+db.users.insertMany([{
+  userID:"u1",
+  firstName: "Manoj",
+  lastName: "Deshpande",
+  emailAddress:"mdeshpa4@uncc.edu",
+  address1Field:"9535 UTD",
+  address2Field:"Apt-B",
+  city:"Charlotte",
+  state:"North Carolina",
+  zipCode:"28262",
+  country:"United States",
+  username:"mdeshpa4@uncc.edu",
+  password:"c542cc5b04c198d654b774be82bf2cf59eac36d0e6a5c4f5d92592880f2bb41a888f447bec5166b1bcd6196b15272b3d8382c13d66fcb2d990f3abfb7a0cb56a",
+  salt:'2b8e5fa9627d07e3'
+},
+{
+  userID:"u2",
+  firstName: "MaD",
+  lastName: "TechIntegrator",
+  emailAddress:"mad@uncc.edu",
+  address1Field:"9875 UTD",
+  address2Field:"Apt-C",
+  city:"Charlotte",
+  state:"North Carolina",
+  zipCode:"28262",
+  country:"United States",
+  username:"mad@uncc.edu",
+  password:"c542cc5b04c198d654b774be82bf2cf59eac36d0e6a5c4f5d92592880f2bb41a888f447bec5166b1bcd6196b15272b3d8382c13d66fcb2d990f3abfb7a0cb56a",
+  salt:'2b8e5fa9627d07e3'
+}])
+
+
+//To insert data in 'userConnections' collection
+db.userConnections.insertMany([{
+  userID:"u1",
+  connectionID:"03_flw_club",
+  rsvp:"maybe"
+},
+{
+  userID:"u1",
+  connectionID:"01_flw_club",
+  rsvp:"yes"
+},{
+  userID:"u2",
+  connectionID:"02_flw_club",
+  rsvp:"yes"
+},{
+  userID:"u2",
+  connectionID:"03_am_club",
+  rsvp:"maybe"
+}])

@@ -1,0 +1,177 @@
+body{
+  font-family: sans-serif;
+  min-height: 100vh; /* will cover the 100% of viewport */
+  min-width: 100vh; /* will cover the 100% of viewport */
+  position: relative;
+}
+
+header, footer{
+  background-color: #e8f7ff;
+}
+
+
+hr {
+  display: block;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 0.5px;
+  border-color: #0c8bd7
+}
+
+.container{
+  padding-bottom:30px;
+}
+
+.footer {
+  position:fixed;
+  flex-shrink: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  padding-left: 4%;
+  color: white;
+  text-align: left;
+  /* z-index: -1; */
+  height: 30px;
+}
+
+.user-specific-navigation, .general-site-navigation {
+  display:flex;
+  list-style: none;
+  font-size: 1em;
+  margin:0;
+  padding: 0;
+  align-items: center;
+}
+
+.general-site-navigation {
+  padding-left: 4%;
+}
+
+.footer-navigation{
+  display:flex;
+  list-style: none;
+  font-size: 1em;
+  margin:0;
+  padding: 0;
+  bottom: 0;
+}
+
+.align-right{
+
+  text-align: right;
+}
+
+.content{
+  padding-left: 33%;
+  padding-right: 33%;
+  padding-top: 10%;
+}
+
+.content-connections{
+  padding-left: 33%;
+  padding-right: 33%;
+  padding-top:5%;
+  margin-bottom: 50px;
+}
+
+.content-form{
+  padding-top:5%;
+}
+
+.user-form{
+  padding-top:3%;
+  padding-bottom: 3%;
+
+}
+
+li{
+  padding: 10px;
+}
+
+li.activity{
+  padding: 0px;
+}
+.connections{
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.activity{
+  padding: 1px;
+}
+
+a{
+  color: #0f5883;
+  text-decoration: none;
+}
+
+#user{
+  color: #0f5883;
+}
+
+li.logo > a > img {
+  width: 150px;
+
+}
+
+#profile{
+  width: 150px;
+
+}
+
+#login, #about{
+  border-left: 1px solid #0c8bd7;
+  border-right: 1px solid #0c8bd7;
+}
+
+#green{
+  background-color: #4CAF50;
+  border: none;
+}
+
+#red{
+  background-color: #f44336;
+  border: none;
+}
+
+#blue{
+  border: none;
+}
+
+
+.button-line{
+  display: inline;
+}
+
+.align-center{
+  align-items: center;
+}
+
+.pull-right{
+  float: right;
+}
+h5{
+  margin-bottom: 3px;
+}
+
+#topic{
+  text-transform: uppercase;
+}
+
+#name{
+  text-transform: capitalize;
+}
+
+#error{
+  color: red;
+}
+
+#pencil{
+  width: 200px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+
+  <body>
+
+    <% include partials/header.ejs {user:user} %>
+
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <h5><%=user.firstName %> <%=user.lastName %>'s Created Connections</h5>
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Connection</th>
+                <th>Category</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%userConnectionData.forEach(function(item){%>
+              <tr>
+                <td>🕵️</td>
+                <td><%=item.connectionName%></td>
+                <td><%=item.connectionTopic%></td>
+                <td>
+                  <form class="button-line" action="editConnection" method="get">
+                    <input type="hidden" name="connectionID" value="<%= item.connectionID %>">
+                    <input class="button" type="submit" value="Edit">
+                  </form>
+                  <form class="button-line" action="createdConnections" method="get">
+                    <input type="hidden" name="removeConnectionID" value="<%= item.connectionID %>">
+                    <input class="button" type="submit" value="Remove">
+                  </form>
+                </td>
+
+              </tr>
+              <%});%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html>

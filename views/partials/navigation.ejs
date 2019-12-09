@@ -1,0 +1,14 @@
+<div class="row ">
+  <div class="eight columns">
+    <ul class="general-site-navigation">
+      <li><a href="../connections">Architecture Connections</a></li>
+    </ul>
+  </div>
+  <% if(view === "user"){%>
+  <div class="four columns ">
+    <ul class="user-specific-navigation">
+      <li class="align-right" id="user">Welcome <%=user.firstName %> <%=user.lastName %>!</li>
+    </ul>
+  </div>
+  <%}%>
+</div>

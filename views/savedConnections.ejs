@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+
+  <body>
+
+    <% include partials/header.ejs {user:user} %>
+
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <h5><%=user.firstName %> <%=user.lastName %>'s Saved Connections</h5>
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Connection</th>
+                <th>Category</th>
+                <th>Going?</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%userConnectionData.forEach(function(item){%>
+              <tr>
+                <%if(item.connection.userID === user.userID){%>
+                  <td>🕵️</td>
+                <%}else{%>
+                  <td> </td>
+                <%}%>
+                <td><%=item.connection.connectionName%></td>
+                <td><%=item.connection.connectionTopic%></td>
+                <td><%=item.rsvp%></td>
+                <td>
+                  <form class="button-line" action="connection" method="get">
+                    <input type="hidden" id="connectionID" name="connectionID" value="<%= item.connection.connectionID %>">
+                    <input class="button" type="submit" value="Update">
+                  </form>
+                  <form class="button-line" action="savedConnections" method="get">
+                    <input type="hidden" id="connectionID" name="deleteConnectionID" value="<%= item.connection.connectionID %>">
+                    <input class="button" type="submit" value="Delete">
+                  </form>
+                </td>
+
+              </tr>
+              <%});%>
+            </tbody>
+          </table>
+          <form class="button-line" action="createdConnections" method="post">
+            <input class="button" type="submit" value="Edit my Connections">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<div class="four columns">
+  <ul class="user-specific-navigation">
+    <% if(view === "user"){%>
+      <li class="align-right" ><a href="../newConnection">Start a New Arch Connection</a></li>
+      <li class="align-right" id="login"><a href="../savedConnections/clearSession">Log Out</a></li>
+      <li class="align-right" ><a href="../savedConnections">My Connections</a></li>
+    <%}else{%>
+      <li class="align-right" ><a href="../login">Start a New Arch Connection</a></li>
+      <li class="align-right" id="login"><a href="../login">Login</a></li>
+      <li class="align-right" ><a href="../signup">Sign Up</a></li>
+    <%}%>
+  </ul>
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <% include partials/head.ejs %>
+  <body>
+
+    <% include partials/header.ejs {user:user} %>
+<!-- href="connection?connectionID=" -->
+    <div class="container">
+      <div class="content-connections">
+        <h5>Architecture Societies</h5>
+        <ol class="connections">
+          <!-- for each item in topic, match the topic name in connections object and create sub list of all objects with the required topic name-->
+          <% dataTopic.forEach(function(topic){%>
+          <li class= "activity"><%= topic %>
+            <ul class="connections">
+              <% data.forEach(function(item){if(item.connectionTopic === topic){%>
+                <% var ref = 'connection?connectionID='; %>
+                <li class= "activity"><a href="<%= ref + item.connectionID;%>" id="<%= item.connectionID;%>"><%= item.connectionName;%></a></li>
+              <% }}); %>
+            </ul></li>
+            <% });%>
+        </ol>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
+
+  </body>
+</html
